@@ -1,0 +1,465 @@
+﻿<Window x:Class="FigmaToXaml.TicketKioskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FigmaToXaml"
+        mc:Ignorable="d"
+        Title="TicketKioskView" Height="1920" Width="1080">
+    <UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Border
+        x:Name="EXPORT_ROOT"
+        Width="1080"
+        Height="1920"
+        Background="#FFFFFFFF">
+            <Canvas>
+                <Canvas
+                x:Name="CT_번호표"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Width="1080"
+                Height="235">
+                    <Grid
+                    x:Name="번호표_발행"
+                    Canvas.Left="67"
+                    Canvas.Top="0"
+                    Width="946"
+                    Height="235">
+                        <TextBlock
+                        Text="번호표 발행"
+                        Foreground="#FF87AC10"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="196"
+                        FontWeight="Bold"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="235.2"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-11.76,0,0" />
+                    </Grid>
+                </Canvas>
+                <Canvas
+                x:Name="CT_Shadow"
+                Canvas.Left="0"
+                Canvas.Top="386"
+                Width="1080"
+                Height="1513">
+                    <Border
+                    x:Name="Rectangle_1"
+                    Canvas.Left="0"
+                    Canvas.Top="42"
+                    Width="1080"
+                    Height="1471"
+                    Background="#FFFFFFFF"
+                    CornerRadius="48,48,0,0">
+                        <Border.Effect>
+                            <DropShadowEffect
+                            Color="#000000"
+                            Opacity="0.251"
+                            BlurRadius="16"
+                            ShadowDepth="4"
+                            Direction="90" />
+                        </Border.Effect>
+                    </Border>
+                    <Canvas
+                    x:Name="BTN_ServiceArea"
+                    Canvas.Left="99"
+                    Canvas.Top="492"
+                    Width="875"
+                    Height="287">
+                        <Border
+                        x:Name="Rectangle_2"
+                        Canvas.Left="0"
+                        Canvas.Top="0"
+                        Width="875"
+                        Height="287"
+                        Background="#FF28A630"
+                        CornerRadius="20" />
+                        <Grid
+                        x:Name="퇴원_재증명"
+                        Canvas.Left="216"
+                        Canvas.Top="43"
+                        Width="480"
+                        Height="101">
+                            <TextBlock
+                            Text="퇴원/재증명"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="88"
+                            FontWeight="Bold"
+                            TextAlignment="Left"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="101.2"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-5.28,0,0" />
+                        </Grid>
+                        <Grid
+                        x:Name="퇴원_수속_진단서_진료확인서_등"
+                        Canvas.Left="216"
+                        Canvas.Top="166"
+                        Width="480"
+                        Height="88">
+                            <TextBlock
+                            Text="퇴원 수속/진단서/
+진료확인서 등"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="40"
+                            FontWeight="Medium"
+                            TextAlignment="Left"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="44"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-2.4,0,0" />
+                        </Grid>
+                        <Border
+                        x:Name="Rectangle_3"
+                        Canvas.Left="683"
+                        Canvas.Top="9"
+                        Width="181"
+                        Height="271"
+                        Background="#FF53B859"
+                        CornerRadius="16" />
+                        <Grid
+                        x:Name="Node_6"
+                        Canvas.Left="740"
+                        Canvas.Top="147"
+                        Width="37"
+                        Height="47">
+                            <TextBlock
+                            Text="1"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="64"
+                            FontWeight="Medium"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="64"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-3.84,0,0" />
+                        </Grid>
+                        <Grid
+                        x:Name="명"
+                        Canvas.Left="801"
+                        Canvas.Top="146"
+                        Width="45"
+                        Height="48">
+                            <TextBlock
+                            Text="명"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="48"
+                            FontWeight="Medium"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="48"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-2.88,0,0" />
+                        </Grid>
+                        <Grid
+                        x:Name="대기"
+                        Canvas.Left="740"
+                        Canvas.Top="80"
+                        Width="89"
+                        Height="48">
+                            <TextBlock
+                            Text="대기"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="48"
+                            FontWeight="Medium"
+                            TextAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="48"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-2.88,0,0" />
+                        </Grid>
+                        <!-- VECTOR 'ICON_ticketIcon' needs Path.Data from JsonExport for exact conversion. -->
+                        <Rectangle
+                        x:Name="ICON_ticketIcon"
+                        Canvas.Left="66.667"
+                        Canvas.Top="89.667"
+                        Width="93.333"
+                        Height="117.333"
+                        Fill="#FFFFFFFF"
+                        Opacity="0.35" />
+                    </Canvas>
+                </Canvas>
+                <Canvas
+                x:Name="CT_Sel"
+                Canvas.Left="206"
+                Canvas.Top="448"
+                Width="674"
+                Height="104">
+                    <Grid
+                    x:Name="원하시는_서비스를_선택해주세요"
+                    Canvas.Left="26"
+                    Canvas.Top="21"
+                    Width="640"
+                    Height="67">
+                        <TextBlock
+                        Text="원하시는 서비스를 선택해주세요"
+                        Foreground="#FF000000"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="48"
+                        FontWeight="Bold"
+                        TextAlignment="Center"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="67.2"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-2.88,0,0" />
+                    </Grid>
+                </Canvas>
+                <Canvas
+                x:Name="CT_ServiceArea"
+                Canvas.Left="99"
+                Canvas.Top="571"
+                Width="875"
+                Height="287">
+                    <Border
+                    x:Name="Rectangle_2_2"
+                    Canvas.Left="0"
+                    Canvas.Top="0"
+                    Width="875"
+                    Height="287"
+                    Background="#FF4641E8"
+                    CornerRadius="20" />
+                    <Grid
+                    x:Name="의무기록"
+                    Canvas.Left="216"
+                    Canvas.Top="43"
+                    Width="480"
+                    Height="101">
+                        <TextBlock
+                        Text="의무기록"
+                        Foreground="#FFFFFFFF"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="88"
+                        FontWeight="Bold"
+                        TextAlignment="Left"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="101.2"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-5.28,0,0" />
+                    </Grid>
+                    <Grid
+                    x:Name="의무기록지_검사결과지_조직슬라이드_CD"
+                    Canvas.Left="216"
+                    Canvas.Top="162"
+                    Width="480"
+                    Height="96">
+                        <TextBlock
+                        Text="의무기록지/검사결과지/
+조직슬라이드/CD"
+                        Foreground="#FFFFFFFF"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="40"
+                        FontWeight="Medium"
+                        TextAlignment="Left"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="48"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-2.4,0,0" />
+                    </Grid>
+                    <Border
+                    x:Name="Rectangle_3_2"
+                    Canvas.Left="683"
+                    Canvas.Top="9"
+                    Width="181"
+                    Height="271"
+                    Background="#FF6B67ED"
+                    CornerRadius="16" />
+                    <Grid
+                    x:Name="Node_6_2"
+                    Canvas.Left="740"
+                    Canvas.Top="147"
+                    Width="37"
+                    Height="47">
+                        <TextBlock
+                        Text="1"
+                        Foreground="#FFFFFFFF"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="64"
+                        FontWeight="Medium"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="64"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-3.84,0,0" />
+                    </Grid>
+                    <Grid
+                    x:Name="명_2"
+                    Canvas.Left="801"
+                    Canvas.Top="146"
+                    Width="45"
+                    Height="48">
+                        <TextBlock
+                        Text="명"
+                        Foreground="#FFFFFFFF"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="48"
+                        FontWeight="Medium"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="48"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-2.88,0,0" />
+                    </Grid>
+                    <Grid
+                    x:Name="대기_2"
+                    Canvas.Left="740"
+                    Canvas.Top="80"
+                    Width="89"
+                    Height="48">
+                        <TextBlock
+                        Text="대기"
+                        Foreground="#FFFFFFFF"
+                        FontFamily="./Fonts/#Noto Sans CJK KR"
+                        FontSize="48"
+                        FontWeight="Medium"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        LineHeight="48"
+                        LineStackingStrategy="BlockLineHeight"
+                        TextWrapping="Wrap"
+                        Margin="0,-2.88,0,0" />
+                    </Grid>
+                    <!-- VECTOR 'ICON_ticketIcon' needs Path.Data from JsonExport for exact conversion. -->
+                    <Rectangle
+                    x:Name="ICON_ticketIcon_2"
+                    Canvas.Left="66.667"
+                    Canvas.Top="89.667"
+                    Width="93.333"
+                    Height="117.333"
+                    Fill="#FFFFFFFF"
+                    Opacity="0.35" />
+                </Canvas>
+                <Border
+                x:Name="CT_Banner2"
+                Canvas.Left="323"
+                Canvas.Top="295"
+                Width="393"
+                Height="117"
+                Background="#FF4641E8"
+                CornerRadius="65">
+                    <Canvas>
+                        <Grid
+                        x:Name="의무기록_2"
+                        Canvas.Left="64"
+                        Canvas.Top="0"
+                        Width="265"
+                        Height="117">
+                            <TextBlock
+                            Text="의무기록"
+                            Foreground="#FFFFFFFF"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="72"
+                            FontWeight="Bold"
+                            TextAlignment="Left"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="79.2"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-4.32,0,0" />
+                        </Grid>
+                        <Canvas
+                        x:Name="META_Action"
+                        Canvas.Left="64"
+                        Canvas.Top="31"
+                        Width="26"
+                        Height="27">
+                            <Grid
+                            x:Name="commandName"
+                            Canvas.Left="0"
+                            Canvas.Top="0"
+                            Width="13"
+                            Height="4">
+                                <TextBlock
+                                Text="Test"
+                                Foreground="#FF000000"
+                                FontFamily="./Fonts/#Noto Sans CJK KR"
+                                FontSize="6"
+                                FontWeight="Bold"
+                                TextAlignment="Left"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Stretch"
+                                LineHeight="6.6"
+                                LineStackingStrategy="BlockLineHeight"
+                                TextWrapping="Wrap"
+                                Margin="0,-0.36,0,0" />
+                            </Grid>
+                            <Border
+                            x:Name="isClickable"
+                            Canvas.Left="0"
+                            Canvas.Top="0"
+                            Width="10"
+                            Height="10"
+                            Background="#FFD9D9D9" />
+                        </Canvas>
+                    </Canvas>
+                </Border>
+                <Canvas
+                x:Name="CT_BindText"
+                Canvas.Left="176"
+                Canvas.Top="214"
+                Width="619"
+                Height="81">
+                    <Canvas
+                    x:Name="META_BindText"
+                    Canvas.Left="0"
+                    Canvas.Top="0"
+                    Width="619"
+                    Height="81">
+                        <Grid
+                        x:Name="Text"
+                        Canvas.Left="160"
+                        Canvas.Top="0"
+                        Width="300"
+                        Height="60">
+                            <TextBlock
+                            Text="Title"
+                            Foreground="#FF000000"
+                            FontFamily="./Fonts/#Noto Sans CJK KR"
+                            FontSize="48"
+                            FontWeight="Bold"
+                            TextAlignment="Center"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                            LineHeight="67.2"
+                            LineStackingStrategy="BlockLineHeight"
+                            TextWrapping="Wrap"
+                            Margin="0,-2.88,0,0" />
+                        </Grid>
+                    </Canvas>
+                </Canvas>
+            </Canvas>
+        </Border>
+    </UserControl>
+
+</Window>

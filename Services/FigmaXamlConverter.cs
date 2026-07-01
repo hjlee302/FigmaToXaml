@@ -151,19 +151,27 @@ public sealed partial class FigmaXamlConverter
     {
         var fill = FirstVisibleSolidPaint(node.Appearance?.Fills);
         var text = node.Text;
+        var lineHeight = ToLineHeight(text);
+        var baselineOffset = ToTextBaselineOffset(text);
 
-        AppendStartTag(builder, "TextBlock", node, indent, includePosition, extraAttributes =>
-        {
-            extraAttributes.Add(("Text", text?.Characters));
-            extraAttributes.Add(("Foreground", fill?.Color?.Hex));
-            extraAttributes.Add(("FontFamily", ToFontFamily(text?.FontName?.Family)));
-            extraAttributes.Add(("FontSize", text?.FontSize > 0 ? Format(text.FontSize) : null));
-            extraAttributes.Add(("FontWeight", ToFontWeight(text?.FontName?.Style)));
-            extraAttributes.Add(("TextAlignment", ToTextAlignment(text?.TextAlignHorizontal)));
-            extraAttributes.Add(("VerticalAlignment", ToVerticalAlignment(text?.TextAlignVertical)));
-            extraAttributes.Add(("LineHeight", ToLineHeight(text)));
-            extraAttributes.Add(("TextWrapping", "Wrap"));
-        }, hasChildren: false);
+        AppendStartTag(builder, "Grid", node, indent, includePosition, null, hasChildren: true);
+
+        var textAttributes = new List<(string Name, string? Value)>();
+        textAttributes.Add(("Text", text?.Characters));
+        textAttributes.Add(("Foreground", fill?.Color?.Hex));
+        textAttributes.Add(("FontFamily", ToFontFamily(text?.FontName?.Family)));
+        textAttributes.Add(("FontSize", text?.FontSize > 0 ? Format(text.FontSize) : null));
+        textAttributes.Add(("FontWeight", ToFontWeight(text?.FontName?.Style)));
+        textAttributes.Add(("TextAlignment", ToTextAlignment(text?.TextAlignHorizontal)));
+        textAttributes.Add(("VerticalAlignment", ToVerticalAlignment(text?.TextAlignVertical)));
+        textAttributes.Add(("HorizontalAlignment", "Stretch"));
+        textAttributes.Add(("LineHeight", lineHeight));
+        textAttributes.Add(("LineStackingStrategy", lineHeight is null ? null : "BlockLineHeight"));
+        textAttributes.Add(("TextWrapping", "Wrap"));
+        textAttributes.Add(("Margin", baselineOffset == 0 ? null : $"0,{Format(baselineOffset)},0,0"));
+        AppendSimpleTag(builder, "TextBlock", indent + 1, textAttributes, hasChildren: false);
+
+        Indent(builder, indent).AppendLine("</Grid>");
     }
 
     private void AppendShape(StringBuilder builder, FigmaNode node, int indent, bool includePosition, string shapeName)
@@ -181,6 +189,33 @@ public sealed partial class FigmaXamlConverter
                 extraAttributes.Add(("StrokeThickness", Format(node.Appearance.StrokeWeight)));
             }
         }, hasChildren: false);
+    }
+
+    private static void AppendSimpleTag(
+        StringBuilder builder,
+        string elementName,
+        int indent,
+        IEnumerable<(string Name, string? Value)> attributes,
+        bool hasChildren)
+    {
+        Indent(builder, indent).Append('<').Append(elementName);
+
+        foreach (var (name, value) in attributes)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                continue;
+            }
+
+            builder.AppendLine();
+            Indent(builder, indent + 1)
+                .Append(name)
+                .Append("=\"")
+                .Append(XmlEscape(value))
+                .Append('"');
+        }
+
+        builder.AppendLine(hasChildren ? ">" : " />");
     }
 
     private void AppendVectorPlaceholder(StringBuilder builder, FigmaNode node, int indent, bool includePosition)
@@ -392,6 +427,16 @@ public sealed partial class FigmaXamlConverter
             "PERCENT" => Format(text.FontSize * text.LineHeight.Value.Value / 100),
             _ => null,
         };
+    }
+
+    private static double ToTextBaselineOffset(FigmaText? text)
+    {
+        if (text is null || text.FontSize <= 0)
+        {
+            return 0;
+        }
+
+        return Math.Round(text.FontSize * -0.06, 3);
     }
 
     private static double ToShadowDirection(double x, double y)
