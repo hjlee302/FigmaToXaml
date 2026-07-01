@@ -1,0 +1,124 @@
+<Window x:Class="FigmaToXaml.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Figma To XAML"
+        Height="760"
+        Width="1200"
+        MinHeight="560"
+        MinWidth="900"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF7F7F7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0"
+                   Margin="16,14,16,10"
+                   LastChildFill="False">
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock Text="Figma JSON to XAML"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Foreground="#FF1F2937" />
+                <TextBlock Text="JsonExport 플러그인 결과를 붙여넣고 XAML로 변환합니다."
+                           Margin="0,4,0,0"
+                           Foreground="#FF6B7280" />
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Right"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <Button x:Name="LoadJsonButton"
+                        Content="JSON 열기"
+                        Width="92"
+                        Height="34"
+                        Margin="0,0,8,0"
+                        Click="LoadJsonButton_Click" />
+                <Button x:Name="ConvertButton"
+                        Content="변환"
+                        Width="92"
+                        Height="34"
+                        Margin="0,0,8,0"
+                        FontWeight="SemiBold"
+                        Click="ConvertButton_Click" />
+                <Button x:Name="CopyXamlButton"
+                        Content="XAML 복사"
+                        Width="92"
+                        Height="34"
+                        Margin="0,0,8,0"
+                        Click="CopyXamlButton_Click" />
+                <Button x:Name="SaveXamlButton"
+                        Content="XAML 저장"
+                        Width="92"
+                        Height="34"
+                        Click="SaveXamlButton_Click" />
+            </StackPanel>
+        </DockPanel>
+
+        <Grid Grid.Row="1"
+              Margin="16,0,16,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="JsonExport JSON"
+                           Margin="0,0,0,6"
+                           FontWeight="SemiBold"
+                           Foreground="#FF374151" />
+                <TextBox x:Name="JsonInputTextBox"
+                         Grid.Row="1"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         HorizontalScrollBarVisibility="Auto"
+                         VerticalScrollBarVisibility="Auto"
+                         TextWrapping="NoWrap"
+                         FontFamily="Consolas"
+                         FontSize="13"
+                         Padding="10"
+                         BorderBrush="#FFD1D5DB"
+                         Background="White" />
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Generated XAML"
+                           Margin="0,0,0,6"
+                           FontWeight="SemiBold"
+                           Foreground="#FF374151" />
+                <TextBox x:Name="XamlOutputTextBox"
+                         Grid.Row="1"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         HorizontalScrollBarVisibility="Auto"
+                         VerticalScrollBarVisibility="Auto"
+                         TextWrapping="NoWrap"
+                         FontFamily="Consolas"
+                         FontSize="13"
+                         Padding="10"
+                         BorderBrush="#FFD1D5DB"
+                         Background="White"
+                         IsReadOnly="True" />
+            </Grid>
+        </Grid>
+
+        <Border Grid.Row="2"
+                Background="#FFE5E7EB"
+                Padding="16,9">
+            <TextBlock x:Name="StatusTextBlock"
+                       Text="준비됨"
+                       Foreground="#FF374151" />
+        </Border>
+    </Grid>
+</Window>
